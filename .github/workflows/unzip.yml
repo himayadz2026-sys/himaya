@@ -1,0 +1,33 @@
+name: Unzip Himaya
+on:
+  push:
+    paths:
+      - '*.zip'
+  workflow_dispatch:
+jobs:
+  unzip:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unzip file
+        run: |
+          ZIP=$(ls *.zip | head -n 1)
+          unzip -o "$ZIP" -d extracted
+          if [ $(ls -1 extracted | wc -l) -eq 1 ] && [ -d "extracted/$(ls extracted)" ]; then
+            INNER=$(ls extracted)
+            mv extracted/"$INNER"/* ./ 2>/dev/null || true
+            rm -rf extracted
+          else
+            mv extracted/* ./ 2>/dev/null || true
+            rm -rf extracted
+          fi
+          rm -f "$ZIP"
+      - name: Commit extracted files
+        run: |
+          git config user.name "himayadz2026-sys"
+          git config user.email "himayadz2026-sys@users.noreply.github.com"
+          git add -A
+          git commit -m "Unzip Himaya code" || echo "nothing to commit"
+          git push
