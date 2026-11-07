@@ -1,0 +1,189 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --neon-green: #00FF41;
+    --neon-green-glow: rgba(0, 255, 65, 0.4);
+    --neon-red: #FF0055;
+    --neon-red-glow: rgba(255, 0, 85, 0.4);
+    --cyber-black: #000000;
+  }
+
+  body {
+    background-color: #000000;
+    color: #e5ffe8;
+    font-family: 'Rajdhani', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  html:not(.dark) body {
+    background-color: #F4F7F5;
+    color: #0F172A;
+  }
+
+  h1, h2, h3, .font-orbitron {
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Neon Glow Utilities */
+.neon-glow-green {
+  text-shadow: 0 0 8px rgba(0, 255, 65, 0.8), 0 0 20px rgba(0, 255, 65, 0.4);
+}
+
+html:not(.dark) .neon-glow-green {
+  text-shadow: 0 1px 3px rgba(5, 150, 105, 0.4);
+}
+
+.neon-glow-red {
+  text-shadow: 0 0 8px rgba(255, 0, 85, 0.8), 0 0 20px rgba(255, 0, 85, 0.4);
+}
+
+html:not(.dark) .neon-glow-red {
+  text-shadow: 0 1px 3px rgba(225, 29, 72, 0.4);
+}
+
+.box-neon-green {
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.25), inset 0 0 15px rgba(0, 255, 65, 0.1);
+}
+
+html:not(.dark) .box-neon-green {
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.15);
+}
+
+.box-neon-red {
+  box-shadow: 0 0 15px rgba(255, 0, 85, 0.35), inset 0 0 15px rgba(255, 0, 85, 0.15);
+}
+
+html:not(.dark) .box-neon-red {
+  box-shadow: 0 4px 16px rgba(244, 63, 94, 0.2);
+}
+
+.border-neon-green {
+  border-color: rgba(0, 255, 65, 0.5);
+}
+
+/* Hexagonal / Chamfered Cyber Clip */
+.cyber-hex-clip {
+  clip-path: polygon(
+    12px 0%, 
+    calc(100% - 12px) 0%, 
+    100% 12px, 
+    100% calc(100% - 12px), 
+    calc(100% - 12px) 100%, 
+    12px 100%, 
+    0% calc(100% - 12px), 
+    0% 12px
+  );
+}
+
+/* Rotating Ring Animations */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse-slow {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes spin-fast {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes radar-sweep {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes cyber-pulse {
+  0%, 100% {
+    opacity: 0.8;
+    filter: drop-shadow(0 0 8px rgba(0, 255, 65, 0.6));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 18px rgba(0, 255, 65, 0.9));
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 16s linear infinite;
+}
+
+.animate-spin-reverse-slow {
+  animation: spin-reverse-slow 22s linear infinite;
+}
+
+.animate-spin-fast {
+  animation: spin-fast 2s linear infinite;
+}
+
+.animate-radar {
+  animation: radar-sweep 2.4s linear infinite;
+}
+
+.animate-cyber-pulse {
+  animation: cyber-pulse 2.5s ease-in-out infinite;
+}
+
+/* Custom Cyber Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #020503;
+}
+html:not(.dark) ::-webkit-scrollbar-track {
+  background: #e2e8f0;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 65, 0.3);
+  border-radius: 2px;
+}
+html:not(.dark) ::-webkit-scrollbar-thumb {
+  background: rgba(16, 185, 129, 0.4);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 65, 0.7);
+}
+
+/* Leaflet Clean & Bright Map Container with Cyber Frame */
+.leaflet-container {
+  font-family: 'JetBrains Mono', monospace !important;
+  border-radius: 1rem;
+  z-index: 10;
+}
+
+/* Custom Cyber Map Pin pulse */
+.cyber-map-pin {
+  background: transparent;
+  border: none;
+}
+

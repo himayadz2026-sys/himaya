@@ -1,0 +1,6 @@
+{
+  "name": "Himaya - All-in-One Security & Hacker Tools",
+  "description": "Elite cyberpunk mobile security suite featuring real-time link scanning, password generator, Wi-Fi auditing, malware deep scan, app traffic firewall, interactive terminal, and coordinate mapping.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
