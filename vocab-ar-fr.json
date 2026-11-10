@@ -1,0 +1,20 @@
+{
+  "phrases": {
+    "لم نكن هنا كنا نعمل في المنزل": "Nous n'étions pas ici, nous travaillions à la maison",
+    "لم نكن هنا": "Nous n'étions pas ici",
+    "كنا نعمل في المنزل": "Nous travaillions à la maison",
+    "السلام عليكم": "Bonjour",
+    "كيف حالك": "Comment allez-vous",
+    "شكرا": "Merci"
+  },
+  "words": {
+    "أنا": "je",
+    "نحن": "nous",
+    "المنزل": "la maison",
+    "نعمل": "travaillons",
+    "هنا": "ici",
+    "أعمل": "je travaille",
+    "أحب": "j'aime",
+    "أريد": "je veux"
+  }
+}
